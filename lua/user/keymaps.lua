@@ -49,7 +49,7 @@ keymap("n","<leader>ff","<cmd>Telescope find_files<cr>", opts)
 keymap("n","<leader>fg","<cmd>Telescope live_grep<cr>", opts)
 keymap("n","<leader>fb","<cmd>Telescope buffers<cr>", opts)
 keymap("n","<leader>fh","<cmd>Telescope help_tags<cr>", opts)
-keymap("n","<leader>fr","cmd>Telescope oldfiles<cr>", opts)
+keymap("n","<leader>fr","<cmd>Telescope oldfiles<cr>", opts)
 -- Auto-setup
 keymap("n","<leader>t","<cmd>vsplit term://zsh<CR> <cmd>split term://zsh<CR> <cmd>wincmd k<CR> <cmd>resize +10<CR> <cmd>wincmd h<cr>", opts)
 
