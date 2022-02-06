@@ -48,3 +48,6 @@ vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 vim.cmd [[ autocmd BufWinEnter,WinEnter term://* startinsert ]]
 vim.cmd [[ autocmd BufLeave term://* stopinsert ]]
 
+-- allow for pop-up diagnostics
+vim.cmd [[ autocmd CursorHold * lua vim.diagnostic.open_float({ border = "rounded" }) ]]
+vim.cmd [[ autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help({ border = "rounded" }) ]]
