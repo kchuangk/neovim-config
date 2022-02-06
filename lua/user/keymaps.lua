@@ -5,7 +5,9 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
+-- Remap macro command
+keymap("n", "<S-m>", "q", opts)
+-- Remap space as leader key
 keymap("", "q", "<Nop>", opts)
 vim.g.mapleader = "q"
 vim.g.maplocalleader = "q"
@@ -38,6 +40,7 @@ keymap("n", "<C-j>", ":bnext<CR>", opts)
 keymap("n", "<C-k>", ":bprevious<CR>", opts)
 
 -- Split screen
+keymap("n","s","<Nop>",opts)
 keymap("n","<leader>s",":split<CR>", opts)
 keymap("n","<leader>v",":vsplit<CR>", opts)
 
@@ -62,9 +65,9 @@ keymap("x", "<S-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "qq", "<C-\\><C-N>", opts)
-keymap("t", "qh", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "qj", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "qk", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "ql", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "qq", "<C-\\><C-n>", opts)
+keymap("t", "qh", "<C-\\><C-n><C-w>h", term_opts)
+keymap("t", "qj", "<C-\\><C-n><C-w>j", term_opts)
+keymap("t", "qk", "<C-\\><C-n><C-w>k", term_opts)
+keymap("t", "ql", "<C-\\><C-n><C-w>l", term_opts)
 
