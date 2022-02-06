@@ -16,8 +16,8 @@ local options = {
   splitbelow = true,                       -- force all horizontal splits to go below current window
   splitright = true,                       -- force all vertical splits to go to the right of current window
   swapfile = false,                        -- creates a swapfile
-  -- termguicolors = true,                    -- set term gui colors (most terminals support this)
-  timeoutlen = 100,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+  termguicolors = true,                    -- set term gui colors (most terminals support this)
+  timeoutlen = 1000,                        -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true,                         -- enable persistent undo
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
@@ -33,6 +33,7 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  autochdir = true,
 }
 
 vim.opt.shortmess:append "c"
@@ -44,3 +45,9 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd [[ autocmd BufWinEnter,WinEnter term://* startinsert ]]
+vim.cmd [[ autocmd BufLeave term://* stopinsert ]]
+
+-- allow for pop-up diagnostics
+vim.cmd [[ autocmd CursorHold * lua vim.diagnostic.open_float({ border = "rounded" }) ]]
+vim.cmd [[ autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help({ border = "rounded" }) ]]
