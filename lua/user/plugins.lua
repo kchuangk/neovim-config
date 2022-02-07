@@ -77,7 +77,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "p00f/nvim-ts-rainbow"
-  use "nvim-treesitter/playground"
+  -- use "nvim-treesitter/playground"
 
   use {
       'kyazdani42/nvim-tree.lua',
@@ -86,6 +86,9 @@ return packer.startup(function(use)
       },
       config = function() require'nvim-tree'.setup {} end
   }
+
+  -- Vim-slime
+  use 'kchuangk/vim-slime'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

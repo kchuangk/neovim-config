@@ -20,36 +20,51 @@ vim.g.maplocalleader = "q"
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Vim Slime
+-- xmap <C-c>c <Plug>SlimeRegionSend
+-- nmap <C-c><C-c> <Plug>SlimeLineSend
+-- nmap <C-c>c <Plug>SlimeParagraphSend
+-- <Plug> won't work with noremap
+keymap('x', '<C-c>c', '<Plug>SlimeRegionSend', term_opts)
+keymap('n', '<C-c>c', '<Plug>SlimeParagraphSend', term_opts)
+keymap('n', '<C-c><C-c>', '<Plug>SlimeLineSend', term_opts)
+
+
 -- Normal --
 -- Better window navigation
-keymap("n", "<leader>h", ":wincmd h<cr>", opts)
-keymap("n", "<leader>j", ":wincmd j<cr>", opts)
-keymap("n", "<leader>k", ":wincmd k<cr>", opts)
-keymap("n", "<leader>l", ":wincmd l<cr>", opts)
+keymap("n", "<leader>h", "<cmd>wincmd h<cr>", opts)
+keymap("n", "<leader>j", "<cmd>wincmd j<cr>", opts)
+keymap("n", "<leader>k", "<cmd>wincmd k<cr>", opts)
+keymap("n", "<leader>l", "<cmd>wincmd l<cr>", opts)
+keymap("n","<leader>x","<cmd>wincmd x<CR>", opts)
 
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", "<cmd>resize +2<CR>", opts)
+keymap("n", "<C-Down>", "<cmd>resize -2<CR>", opts)
+keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<C-j>", ":bnext<CR>", opts)
-keymap("n", "<C-k>", ":bprevious<CR>", opts)
+keymap("n", "<C-j>", "<cmd>bnext<CR>", opts)
+keymap("n", "<C-k>", "<cmd>bprevious<CR>", opts)
 
 -- Split screen
 keymap("n","s","<Nop>",opts)
-keymap("n","<leader>s",":split<CR>", opts)
-keymap("n","<leader>v",":vsplit<CR>", opts)
+keymap("n","<leader>s","<cmd>vsplit<CR>", opts)
+keymap("n","<leader>v","<cmd>split<CR>", opts)
 
 -- Telescope
-keymap("n","<leader>T",":Telescope<CR>", opts)
+keymap("n","<leader>ff","<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
+keymap("n","<leader>g","<cmd>Telescope git_status<cr>", opts)
+keymap("n","<leader>d","<cmd>Telescope lsp_document_symbols<cr>", opts)
+keymap("n","<leader>r","<cmd>Telescope oldfiles<cr>", opts)
 
 -- Auto-setup
-keymap("n","<leader>t",":vsplit term://zsh | :split term://zsh | :wincmd k | :resize +10 | wincmd h<cr>", opts)
+keymap("n","<leader>t","<cmd>vsplit term://zsh<CR> <cmd>split term://zsh<CR> <cmd>wincmd k<CR> <cmd>resize +10<CR> <cmd>wincmd h<cr>", opts)
 
+keymap("n","go","<C-o>",opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -61,14 +76,14 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("n", "<S-j>", ":m .+1<CR>==", opts)
-keymap("n", "<S-k>", ":m .-2<CR>==", opts)
+keymap("n", "<leader><S-j>", "<cmd>m .+1<CR>==", opts)
+keymap("n", "<leader><S-k>", "<cmd>m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "<S-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<S-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<leader><S-j>", "<cmd>move '>+1<CR>gv-gv", opts)
+keymap("x", "<leader><S-k>", "<cmd>move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
