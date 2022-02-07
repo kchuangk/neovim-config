@@ -20,6 +20,13 @@ vim.g.maplocalleader = "q"
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Vim-Slime --
+keymap("n","<C-c><C-c>", "<cmd>SlimeLineSend<CR>",opts)
+keymap("n","<C-c>c", "<cmd>SlimeParagraphSend<CR>",opts)
+keymap("x","<C-c>c", "<cmd>SlimeRegionSend<CR>",opts)
+
+
+
 -- Normal --
 -- Better window navigation
 keymap("n", "<leader>h", "<cmd>wincmd h<cr>", opts)
@@ -65,14 +72,14 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("n", "<S-j>", "<cmd>m .+1<CR>==", opts)
-keymap("n", "<S-k>", "<cmd>m .-2<CR>==", opts)
+keymap("n", "<leader><S-j>", "<cmd>m .+1<CR>==", opts)
+keymap("n", "<leader><S-k>", "<cmd>m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "<S-j>", "<cmd>move '>+1<CR>gv-gv", opts)
-keymap("x", "<S-k>", "<cmd>move '<-2<CR>gv-gv", opts)
+keymap("x", "<leader><S-j>", "<cmd>move '>+1<CR>gv-gv", opts)
+keymap("x", "<leader><S-k>", "<cmd>move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
