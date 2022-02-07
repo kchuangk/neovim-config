@@ -1,3 +1,5 @@
+-- vim.cmd [[ let $GIT_SSL_NO_VERIFY = 'true' ]]
+
 local options = {
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
