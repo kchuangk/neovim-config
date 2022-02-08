@@ -35,7 +35,8 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "FiraMono Nerd Font Mono:h12:w57", -- the font used in graphical neovim applications
-  autochdir = true,
+  autochdir = true,                        -- automatically change the working directory
+  foldlevel = 99,                          -- folding
 }
 
 vim.opt.shortmess:append "c"

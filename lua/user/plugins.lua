@@ -68,7 +68,6 @@ return packer.startup(function(use)
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "ray-x/lsp_signature.nvim" -- for lsp signatures
 
-
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
@@ -98,6 +97,12 @@ return packer.startup(function(use)
         },
   }
 
+  -- Bufferlines
+  use { 'akinsho/bufferline.nvim', 
+        requires = {
+          'kyazdani42/nvim-web-devicons',
+        },
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

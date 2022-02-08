@@ -21,14 +21,9 @@ vim.g.maplocalleader = "q"
 --   command_mode = "c",
 
 -- Vim Slime
--- xmap <C-c>c <Plug>SlimeRegionSend
--- nmap <C-c><C-c> <Plug>SlimeLineSend
--- nmap <C-c>c <Plug>SlimeParagraphSend
--- <Plug> won't work with noremap
 keymap('x', '<C-c>c', '<Plug>SlimeRegionSend', term_opts)
 keymap('n', '<C-c>c', '<Plug>SlimeParagraphSend', term_opts)
 keymap('n', '<C-c><C-c>', '<Plug>SlimeLineSend', term_opts)
-
 
 -- Normal --
 -- Better window navigation
@@ -38,7 +33,11 @@ keymap("n", "<leader>k", "<cmd>wincmd k<cr>", opts)
 keymap("n", "<leader>l", "<cmd>wincmd l<cr>", opts)
 keymap("n","<leader>x","<cmd>wincmd x<CR>", opts)
 
+-- NvimTreeToggle --
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", opts)
+
+-- Tabs --
+keymap("n","tc","<cmd>tabnew<cr>",opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", "<cmd>resize +2<CR>", opts)
@@ -62,8 +61,7 @@ keymap("n","<leader>d","<cmd>Telescope lsp_document_symbols<cr>", opts)
 keymap("n","<leader>r","<cmd>Telescope oldfiles<cr>", opts)
 
 -- Auto-setup
-keymap("n","<leader>t","<cmd>vsplit term://zsh<CR> <cmd>split term://zsh<CR> <cmd>wincmd k<CR> <cmd>resize +10<CR> <cmd>wincmd h<cr>", opts)
-
+keymap("n","<leader>t","<cmd>vsplit term://zsh<CR> <cmd>tabnew term://zsh<CR> <cmd>tabprevious<CR> <cmd>wincmd h<cr>", opts)
 keymap("n","go","<C-o>",opts)
 
 -- Insert --
